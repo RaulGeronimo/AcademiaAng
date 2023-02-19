@@ -1,0 +1,21 @@
+<div class="col-md-4" *ngFor="let actividades of actividades" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{actividades.nombre}}
+        <button class="btn btn-danger" (click)="borrarActividad(actividades.codigo)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <img [src]="actividades.imagen" style="margin-left: auto; margin-right: auto; height: 300px;" alt="imagen del Deporte">
+      <div class="card-body">
+        <p style="font-weight: bold;">Instructor</p>
+        <p>{{actividades.rfcInstructor}}</p>
+        <p style="font-weight: bold;">Descripcion</p>
+        <p>{{actividades.descripcion}}</p>
+        <a [routerLink]="['/actividades/actualizar', actividades.codigo]" class="btn btn-info btn-block">
+          Editar Actividad
+        </a>
+      </div>
+    </div>
+  </div>
+  

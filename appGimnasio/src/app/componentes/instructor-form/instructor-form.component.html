@@ -1,0 +1,79 @@
+<div class="col-md-5 offset-md-3">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <!-- RFC -->
+        <div class="card-body">
+          <input type="text" name="rfc" [(ngModel)]="instructor.rfc" placeholder="RFC:" class="form-control" autofocus required>
+        </div>
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" name="nombre" [(ngModel)]="instructor.nombre" placeholder="Nombre:" class="form-control"
+            autofocus required>
+        </div>
+
+        <!-- Apellidos -->
+        <div class="card-body">
+          <input type="text" name="apellidos" [(ngModel)]="instructor.apellidos" placeholder="Apellidos:"
+            class="form-control" autofocus required>
+        </div>
+
+        <!-- <div class="card-body">
+            <input type="number" name="salario" [(ngModel)]="instructor.salario" placeholder="Salario:" class="form-control">
+          </div> -->
+
+          <!-- Salario -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" name="salario" [(ngModel)]="instructor.salario" placeholder="Salario:"
+              class="form-control" aria-label="Valor Monetario (Escribe un numero con decimales)" required>
+          </div>
+        </div>
+
+        <!-- Numero de Telefono -->
+        <div class="card-body">
+          <!-- <input type="tel" name="telefono" [(ngModel)]="instructor.telefono" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+            title="Un número de teléfono válido consiste en un área de código de 3 dígitos entre paréntesis, un espacio, los tres primeros dígitos del número, un espacio o hypen (-), y cuatro dígitos más."
+            placeholder="Numero de Telefono" class="form-control"> -->
+          <div class="input-group">
+            <div class="input-group-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+              </svg>
+            </div>
+            <input type="tel" name="telefono" [(ngModel)]="instructor.telefono" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+              title="Un número de teléfono válido consiste en un área de código de 3 dígitos entre paréntesis, un espacio, los tres primeros dígitos del número, un espacio o hypen (-), y cuatro dígitos más."
+              placeholder="Numero de Telefono" class="form-control" required>
+          </div>
+        </div>
+
+        <!-- Horarios de Trabajo -->
+        <div class="card-body">
+          <textarea name="horarios" [(ngModel)]="instructor.horarios" rows="4"
+            placeholder="Escribe los horarios de Trabajo" class="form-control" required></textarea>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="edit ? actualizaInstructor() : addInstructor()">
+          Aceptar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{instructor.rfc}} - {{instructor.nombre == '' ? 'Nombre del Instructor' : instructor.nombre}}</h3>
+    <p>{{instructor.apellidos == '' ? 'Apellidos' : instructor.apellidos}}</p>
+    <p>$ {{instructor.salario == 0 ? 'Salario' : instructor.salario}}</p>
+    <p>{{instructor.telefono == 0 ? 'Telefono' : instructor.telefono}}</p>
+    <p>{{instructor.horarios == '' ? 'Horarios de Trabajo' : instructor.horarios}}</p>
+    <!-- <p>{{instructor.descripcion == '' ? 'Descripción' : instructor.descripcion}}</p>
+      <p>{{instructor.fecha | date: 'yyyy-MM-dd HH:mm:ss'}}</p> -->
+  </div>
+</div>

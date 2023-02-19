@@ -1,0 +1,120 @@
+<div class="col-md-5 offset-md-3">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" name="nombre" [(ngModel)]="deportista.nombre" placeholder="Nombre:" class="form-control"
+            autofocus required>
+        </div>
+
+        <!-- Apellidos -->
+        <div class="card-body">
+          <input type="text" name="apellidos" [(ngModel)]="deportista.apellidos" placeholder="Apellidos:"
+            class="form-control" required>
+        </div>
+
+        <!-- <div class="card-body">
+          <select name="tipoInscripcion" [(ngModel)]="deportista.tipoInscripcion" class="form-control">
+            <option disabled>Selecciona un Tipo de Inscripcion</option>
+            <option value="Anual">Anual</option>
+            <option value="Mensual">Mensual</option>
+          </select>
+        </div> -->
+
+        <!-- Tipo de Inscripcion -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Inscripción</label>
+            <select name="tipoInscripcion" [(ngModel)]="deportista.tipoInscripcion" class="form-select"
+              id="inputGroupSelect01">
+              <option selected disabled value="">Selecciona un Tipo de Inscripcion</option>
+              <option value="Anual">Anual</option>
+              <option value="Mensual">Mensual</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="card-body">
+          <input type="number" name="noActividades" [(ngModel)]="deportista.noActividades"
+            placeholder="Número de Actividades Inscritas:" class="form-control">
+        </div> -->
+
+        <!-- Numero de Actividades -->
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-text">No. Actividades</span>
+            <input type="number" aria-label="Número de Actividades Inscritas:" class="form-control" name="noActividades"
+              [(ngModel)]="deportista.noActividades" required>
+          </div>
+        </div>
+
+        <!-- Nombre de las Actividades Inscritas -->
+        <div class="card-body">
+          <textarea name="nombreActividades" [(ngModel)]="deportista.nombreActividades"
+            placeholder="Nombre de las Actividades Inscritas" rows="4" class="form-control" required></textarea>
+        </div>
+
+        <!-- <div class="card-body">
+          <select name="cuota" [(ngModel)]="deportista.cuota" class="form-control">
+            <option disabled>Selecciona el precio a pagar</option>
+            <option value="3500">Anual - $3500</option>
+            <option value="200">Mensual - $200</option>
+          </select>
+        </div> -->
+
+        <!-- Cuota de la inscripcion -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="cuota">$</label>
+            <select name="cuota" [(ngModel)]="deportista.cuota" class="form-select" id="cuota">
+              <option disabled>Selecciona el precio a pagar</option>
+              <option value="3500">Anual - $3500</option>
+              <option value="200">Mensual - $200</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="card-body">
+          <input type="number" name="promocion" [(ngModel)]="deportista.promocion" placeholder="Promocion:"
+            class="form-control">
+        </div> -->
+
+        <!-- Promocion de la Inscripcion -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <span class="input-group-text">%</span>
+            <input type="number" name="promocion" [(ngModel)]="deportista.promocion" placeholder="Promocion:"
+              class="form-control" aria-label="Valor Monetario (Escribe un numero con decimales)" required>
+          </div>
+        </div>
+
+        <!-- Horario -->
+        <div class="card-body">
+          <textarea name="horario" [(ngModel)]="deportista.horario" placeholder="Horario en el que ira al Gimnasio"
+            rows="4" class="form-control" required></textarea>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="edit ? actualizaDeportista() : addDeportista()">
+          Aceptar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{deportista.idDeportista}} - {{deportista.nombre == '' ? 'Nombre del Deportista' : deportista.nombre}}</h3>
+    <p>{{deportista.apellidos == '' ? 'Apellidos' : deportista.apellidos}}</p>
+    <p>{{deportista.tipoInscripcion == '' ? 'Tipo de Inscripcion' : deportista.tipoInscripcion}}</p>
+    <p>{{deportista.noActividades == 0 ? 'Actividades Inscritas' : deportista.noActividades}}</p>
+    <p>{{deportista.nombreActividades == '' ? 'Nombre de las Actividades' : deportista.nombreActividades}}</p>
+    <p>$ {{deportista.cuota == 0 ? 'Cuota de la Inscripcion' : deportista.cuota}}</p>
+    <p>% {{deportista.promocion == 0 ? 'Promocion de la Inscripcion' : deportista.promocion}}</p>
+    <p>{{deportista.horario == '' ? 'Horario de Asistencia' : deportista.horario}}</p>
+
+    <p>{{deportista.fechaInscripcion | date: 'yyyy-MM-dd HH:mm:ss'}}</p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="col-md-4" *ngFor="let instructores of instructor" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{instructores.nombre}}
+        <button class="btn btn-danger" (click)="borrarInstructor(instructores.rfc)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <div class="card-body">
+        <p style="font-weight: bold;">Salario</p>
+        <p>$ {{instructores.salario}}</p>
+        <p style="font-weight: bold;">Telefono</p>
+        <p>{{instructores.telefono}}</p>
+        <p style="font-weight: bold;">Horarios de Trabajo</p>
+        <p>{{instructores.horarios}}</p>
+        <a [routerLink]="['/instructor/actualizar', instructores.rfc]" class="btn btn-info btn-block">
+          Editar Instructor
+        </a>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,67 @@
+<div class="col-md-5 offset-md-3">
+  <div class="card">
+    <div class="card-body">
+      <form>
+
+        <!-- <div class="card-body">
+          <select name="idActividad" [(ngModel)]="grupos.idActividad" class="form-control">
+            <option disabled>Selecciona una Actividad</option>
+            <option *ngFor="let actividades of Actividades" value="{{actividades.codigo}}">{{actividades.nombre}}
+            </option>
+          </select>
+        </div> -->
+
+        <!-- Actividad -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="actividad">Actividad</label>
+            <select name="idActividad" [(ngModel)]="grupos.idActividad" class="form-control" id="actividad" autofocus>
+              <option disabled selected value="">Selecciona una Actividad</option>
+              <option *ngFor="let actividades of Actividades" value="{{actividades.codigo}}">{{actividades.nombre}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="card-body">
+          <select name="idDeportista" [(ngModel)]="grupos.idDeportista" class="form-control">
+            <option disabled>Selecciona un Deportista</option>
+            <option *ngFor="let deportista of Deportista" value="{{deportista.idDeportista}}">{{deportista.nombre}}
+            </option>
+          </select>
+        </div> -->
+
+        <!-- Deportista -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="deportista">Deportista</label>
+            <select name="idDeportista" [(ngModel)]="grupos.idDeportista" class="form-control" id="deportista" autofocus>
+              <option disabled value="">Selecciona un Deportista</option>
+              <option *ngFor="let deportista of Deportista" value="{{deportista.idDeportista}}">{{deportista.nombre}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Horarios -->
+        <div class="card-body">
+          <textarea name="horarios" [(ngModel)]="grupos.horarios" placeholder="Horarios" rows="4"
+            class="form-control" required></textarea>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="edit ? actualizaGrupo() : addGrupo()">
+          Aceptar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <h3 style="text-transform: uppercase;">
+      {{grupos.codigo}} - {{grupos.idActividad == 0 ? 'Nombre de la Actividad' : grupos.idActividad}}</h3>
+    <p>{{grupos.idDeportista == 0 ? 'Deportista' : grupos.idDeportista}}</p>
+    <p>{{grupos.horarios == '' ? 'Horarios del grupo' : grupos.horarios}}</p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-md-4" *ngFor="let grupo of grupos" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{grupo.Nombre}}
+      </div>
+      <img [src]="grupo.imagen" style="margin-left: auto; margin-right: auto; height: 300px;" alt="imagen del Deporte">
+      <div class="card-body">
+        <p style="font-weight: bold;">Alumnos Inscritos</p>
+        <p>{{grupo.Cantidad_Deportistas}}</p>
+        <p style="font-weight: bold;">Instructor</p>
+        <p>{{grupo.rfcInstructor}}</p>
+      </div>
+    </div>
+  </div>

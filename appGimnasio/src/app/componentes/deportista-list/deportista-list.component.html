@@ -1,0 +1,21 @@
+<div class="col-md-4" *ngFor="let deportistas of deportista" style="margin-bottom: 1.5rem;">
+  <div class="card text-center">
+    <div class="card-header text-white d-flex justify-content-between align-items-center">
+      {{deportistas.nombre}}
+      <button class="btn btn-danger" (click)="borrarDeportista(deportistas.idDeportista)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
+    <div class="card-body">
+      <p style="font-weight: bold;">Actividades Inscritas</p>
+      <p>{{deportistas.noActividades}}</p>
+      <p style="font-weight: bold;">Nombre de las Actividades</p>
+      <p>{{deportistas.nombreActividades}}</p>
+      <p style="font-weight: bold;">Horario</p>
+      <p>{{deportistas.horario}}</p>
+      <a [routerLink]="['/deportista/actualizar', deportistas.idDeportista]" class="btn btn-info btn-block">
+        Editar Deportista
+      </a>
+    </div>
+  </div>
+</div>

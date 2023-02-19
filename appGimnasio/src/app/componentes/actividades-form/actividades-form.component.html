@@ -1,0 +1,73 @@
+<div class="col-md-5 offset-md-3">
+  <div class="card">
+    <div class="card-body">
+      <form>
+
+        <!-- Nombre -->
+        <div class="card-body">
+          <input type="text" name="nombre" [(ngModel)]="actividades.nombre" placeholder="Nombre de la Actividad:"
+            class="form-control" autofocus required>
+        </div>
+
+        <!-- <div class="card-body">
+          <input type="text" name="rfcInstructor" [(ngModel)]="actividades.rfcInstructor" placeholder="Apellidos:"
+            class="form-control" autofocus>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div> -->
+
+        <!-- Instructor -->
+        <div class="card-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Instructor</label>
+            <select name="rfcInstructor" [(ngModel)]="actividades.rfcInstructor" class="form-control"
+              id="inputGroupSelect01">
+              <option selected disabled value="">Selecciona un Instructor</option>
+              <option *ngFor="let instructor of instructor" value="{{instructor.rfc}}">{{instructor.nombre}}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div class="card-body">
+          <select name="rfcInstructor" [(ngModel)]="actividades.rfcInstructor" class="form-control">
+            <option selected disabled>Selecciona un Instructor</option>
+            <option *ngFor="let instructor of instructor" value="{{instructor.rfc}}">{{instructor.nombre}}</option>
+          </select>
+        </div> -->
+
+        <!-- Descripcion -->
+        <div class="card-body">
+          <textarea name="descripcion" [(ngModel)]="actividades.descripcion" placeholder="Descripcion de la Actividad:"
+            rows="4" class="form-control" required></textarea>
+        </div>
+
+        <!-- Imagen -->
+        <div class="card-body">
+          <input type="url" name="imagen" [(ngModel)]="actividades.imagen" placeholder="Imagen:" class="form-control" required>
+        </div>
+
+        <button type="button" class="btn btn-success" (click)="edit ? actualizaActividad() : addActividad()">
+          Aceptar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card card-body text-center">
+    <img [src]="actividades.imagen == '' ? '/assets/noImagen.png' : actividades.imagen " class="card-img-top">
+    <h3 style="text-transform: uppercase;">
+      {{actividades.codigo}} - {{actividades.nombre == '' ? 'Nombre de la Actividad' : actividades.nombre}}</h3>
+    <p>{{actividades.rfcInstructor == '' ? 'Instructor' : actividades.rfcInstructor}}</p>
+    <p>{{actividades.descripcion == '' ? 'Descripcion de la Actividad' : actividades.descripcion}}</p>
+  </div>
+</div>

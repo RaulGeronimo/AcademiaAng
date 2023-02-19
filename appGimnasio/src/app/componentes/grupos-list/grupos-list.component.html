@@ -1,0 +1,20 @@
+<div class="col-md-4" *ngFor="let grupo of grupos" style="margin-bottom: 1.5rem;">
+    <div class="card text-center">
+      <div class="card-header text-white d-flex justify-content-between align-items-center">
+        {{grupo.Actividad}}
+        <button class="btn btn-danger" (click)="borrarGrupos(grupo.codigo)">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <img [src]="grupo.imagen" style="margin-left: auto; margin-right: auto; height: 300px;" alt="imagen del Deporte">
+      <div class="card-body">
+        <p style="font-weight: bold;">Deportista</p>
+        <p>{{grupo.Deportista}}</p>
+        <p style="font-weight: bold;">Horario</p>
+        <p>{{grupo.horarios}}</p>
+        <a [routerLink]="['/grupos/actualizar', grupo.codigo]" class="btn btn-info btn-block">
+          Editar Deportista
+        </a>
+      </div>
+    </div>
+  </div>
