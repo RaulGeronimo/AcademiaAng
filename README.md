@@ -3,11 +3,11 @@ Código del proyecto “Academia Angular” realizado con Angular, Typescript y 
 
 https://user-images.githubusercontent.com/94584093/227757750-880ddbaa-98e9-4eb5-bbab-ce9682502b86.mp4
 
-Esta es una aplicación web básica para administrar grupos de deportes, asi como sus instructores y los estudiantes utilizando tecnologías como Angular, Node, Typescript y MySQL.
+Esta es una aplicación web básica para administrar grupos de deportes, asi como sus instructores y los estudiantes utilizando tecnologías como Angular, Node, TypeScript y MySQL.
 
 ### Tecnologias utilizadas: 
 - Angular
-- Typecript
+- TypeScript
 - NodeJS
 - Base de Datos MySQL
 
